@@ -21,6 +21,10 @@ pd.set_option('display.max_columns', 100)
 pd.set_option('display.max_rows', 100)
 pd.options.mode.chained_assignment = None
 
+# Output folders
+os.makedirs('images', exist_ok=True)
+os.makedirs('output', exist_ok=True)
+
 print("Environment setup complete!")
 
 
@@ -228,9 +232,9 @@ plt.ylabel('Engagement Rate')
 #------- complete the step-------------
 
 plt.tight_layout()
-plt.savefig('eda_plots.png', dpi=150)
+plt.savefig('images/eda_plots.png', dpi=150)
 plt.close()
-print("Saved -> eda_plots.png")
+print("Saved -> images/eda_plots.png")
 
 
 ## Step 8: Country-Specific Analysis
@@ -271,9 +275,9 @@ def analyze_country(df, country_code):
     axes[1].invert_yaxis()
 
     plt.tight_layout()
-    plt.savefig(f'country_{country_code}.png', dpi=150)
+    plt.savefig(f'images/country_{country_code}.png', dpi=150)
     plt.close()
-    print(f"Saved -> country_{country_code}.png")
+    print(f"Saved -> images/country_{country_code}.png")
     #------- complete the step-------------
 
 # Analyze sample countries
@@ -304,19 +308,19 @@ plt.bar(labels, avg_views.values, color=['steelblue', 'orange'])
 plt.title('Average Views: Exclamation Mark in Title?')
 plt.ylabel('Average Views')
 plt.tight_layout()
-plt.savefig('insight_exclamation.png', dpi=150)
+plt.savefig('images/insight_exclamation.png', dpi=150)
 plt.close()
-print("Saved -> insight_exclamation.png")
+print("Saved -> images/insight_exclamation.png")
 
 
 ## Step 10: Saving Results
 
 # Step 1: Save cleaned data into csv file
 #------- complete the step-------------
-combined_df.to_csv('cleaned_youtube_trending_data.csv')
+combined_df.to_csv('output/cleaned_youtube_trending_data.csv')
 #------- complete the step-------------
 
-print("Saved cleaned data to 'cleaned_youtube_trending_data.csv'")
+print("Saved cleaned data to 'output/cleaned_youtube_trending_data.csv'")
 
 # Step 2: Save top 5 global category bar plot visualizations
 #------- complete the step-------------
@@ -334,8 +338,8 @@ plt.title('Top 5 Global Categories by Total Views')
 plt.xlabel('Category ID')
 plt.ylabel('Total Views')
 plt.tight_layout()
-plt.savefig('top_categories.png', dpi=150)
+plt.savefig('output/top_categories.png', dpi=150)
 plt.close()
 #------- complete the step-------------
 
-print("Saved visualization to 'top_categories.png'")
+print("Saved visualization to 'output/top_categories.png'")
